@@ -7,12 +7,12 @@ app = dash.Dash(__name__,
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
-    "position": "fixed",
-    "top": 0,
-    "left": 0,
-    "bottom": 0,
+   # "position": "fixed",
+    "top": 42,
+   # "left": 0,
+   # "bottom": 0,
     "width": "16rem",
-    "padding": "1rem 1rem",
+    "padding": "5rem 1rem",
     "background-color": "#ff6666",
 }
 
@@ -25,7 +25,7 @@ CONTENT_STYLE = {
 }
 
 sidebar = html.Div(
-    [
+    [   
         html.H2("Sidebar", className="display-4"),
         html.Hr(),
         html.P(
@@ -43,9 +43,9 @@ sidebar = html.Div(
                 'width': '100%',
                 'color': 'blue'
             })
-            ]),
-    ],
-    style=SIDEBAR_STYLE,
+            ],
+    style=SIDEBAR_STYLE,),
+    ]
 )
 
 content = html.Div(style=CONTENT_STYLE)

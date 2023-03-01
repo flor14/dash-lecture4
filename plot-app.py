@@ -1,17 +1,20 @@
 import altair as alt
 from dash import dash, dcc, html, Input, Output
 from vega_datasets import data
+import dash_bootstrap_components as dbc
 
 # Read in global data
 cars = data.cars()
 
 # Setup app and layout/frontend
 app = dash.Dash(__name__, 
-                 external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+                 external_stylesheets=[dbc.themes.DARKLY])
 app.layout = html.Div([
     html.Iframe(
         id='scatter',
-        style={'border-width': '0', 'width': '100%', 'height': '400px'}),
+        style={'border-width': '0',
+              'width': '100%', 
+              'height': '400px'}),
     dcc.Dropdown(
         id='xcol-widget',
         value='Horsepower',  # REQUIRED to show the plot on the first page load
