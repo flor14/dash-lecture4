@@ -13,7 +13,7 @@ SIDEBAR_STYLE = {
     "bottom": 0,
     "width": "16rem",
     "padding": "1rem 1rem",
-   # "background-color": "#ff6666",
+    "background-color": "#ff6666",
 }
 
 # the styles for the main content position it to the right of the sidebar and
@@ -40,7 +40,8 @@ sidebar = html.Div(
                 value='option A',
                 placeholder='Select', 
             style={
-                'width': '100%'
+                'width': '100%',
+                'color': 'blue'
             })
             ]),
     ],
