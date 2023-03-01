@@ -1,4 +1,4 @@
-name: 'dataviz-532'
+name: 'DV-532'
 channels:
   - conda-forge
   - defaults

@@ -2,7 +2,8 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import html, dcc
 
-app = dash.Dash(external_stylesheets=[dbc.themes.DARKLY])
+app = dash.Dash(__name__, 
+                external_stylesheets=[dbc.themes.DARKLY])
 
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
@@ -37,8 +38,10 @@ sidebar = html.Div(
                          'option B',
                          'option C'],
                 value='option A',
-                placeholder='Select'
-              )
+                placeholder='Select', 
+            style={
+                'width': '100%'
+            })
             ]),
     ],
     style=SIDEBAR_STYLE,
