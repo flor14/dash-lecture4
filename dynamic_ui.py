@@ -11,14 +11,18 @@ app = dash.Dash(__name__)
 
 # Define the layout of the UI
 app.layout = html.Div([
-    html.H1('Dropdown Example'),
+    html.H1('Dynamic UI Example'),
     dcc.Dropdown(
         id='dropdown-1',
         options=[{'label': i, 'value': i} for i in data['column-1'].unique()]
     ),
     dcc.Dropdown(
         id='dropdown-2'
-    )
+    ),
+    html.H1('Download Button Example'),
+    html.Button("Download Text",
+                id="btn-download-csv"),
+    dcc.Download(id="download-csv")
 ])
 
 # Define the callback function to update dropdown-2
@@ -29,6 +33,16 @@ app.layout = html.Div([
 def update_dropdown_2(selected_value):
     filtered_data = data[data['column-1'] == selected_value]
     return [{'label': i, 'value': i} for i in filtered_data['column-2'].unique()]
+
+# Download button callback
+@app.callback(
+    Output("download-csv", "data"),
+    Input("btn-download-csv", "n_clicks"),
+    prevent_initial_call=True
+)
+def func(n_clicks):
+    return dcc.send_data_frame(data.to_csv,
+                                "mydf.csv")
 
 # Launch the app
 if __name__ == '__main__':
