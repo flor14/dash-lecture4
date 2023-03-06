@@ -4,10 +4,10 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div([
     dcc.Input(id='widget-1'),
-    dcc.Textarea(id='widget-2')])
+    html.Div(id='widget-2')])
 
 @app.callback(
-    Output('widget-2', 'value'),
+    Output('widget-2', 'children'),
     Input('widget-1', 'value'))
 def update_output(input_value):
     return input_value

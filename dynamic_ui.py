@@ -28,7 +28,7 @@ app.layout = html.Div([
 # Define the callback function to update dropdown-2
 @app.callback(
     Output(component_id='dropdown-2', component_property='options'),
-    [Input(component_id='dropdown-1', component_property='value')]
+    Input(component_id='dropdown-1', component_property='value')
 )
 def update_dropdown_2(selected_value):
     filtered_data = data[data['column-1'] == selected_value]

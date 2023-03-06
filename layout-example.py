@@ -21,7 +21,7 @@ row = html.Div(
                 ),
                 dbc.Col(
                     html.Div("The first of three columns", style = {'background-color':'green'}),
-                    width={"size": 3, "order": 1, "offset": 2},
+                    width={"size": 4, "order": 1, "offset": 2},
                 ),
                 dbc.Col(
                     html.Div("The second of three columns"),
